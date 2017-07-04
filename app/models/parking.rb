@@ -15,4 +15,14 @@ class Parking < ApplicationRecord
     end
   end
 
+  def duration
+    ( end_at - start_at ) / 60
+  end
+
+  def calculate_amount
+    if self.amount.blank? && self.start_at.present? && self.end_at.present?
+      self.amount = 9876
+    end
+  end
+
 end
